@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+// Pandoc filter to convert all text to uppercase
+
+var pandoc = require('pandoc-filter');
+var Str = pandoc.Str;
+
+function action(key,value,format,meta) {
+    if (value === 'todaysdate') return Str(new Date().toDateString().replace(/^[A-z]* /, ""));
+}
+
+pandoc.stdio(action);
