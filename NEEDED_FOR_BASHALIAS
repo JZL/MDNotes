@@ -1,0 +1,7 @@
+function initnotes(){
+cat /home/jonah/Dropbox/code/latex/tufte/tuftePandoc/sample.md|sed "s/TITLEHERE/$1/g" > "$1.md"
+cat /home/jonah/Dropbox/code/latex/tufte/tuftePandoc/Makefile|sed "s/TITLEHERE/$1/g" > "Makefile"
+make
+evince "output.pdf" & 2>/dev/null
+vim "$1.md"
+}
